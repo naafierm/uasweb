@@ -1,17 +1,19 @@
 <?php require('header.php');?>
-<body>
+<div class="container">
     <?php
     require('koneksi.php');
     $sql = "select id,Nama,mahasiswa.NIM,Predikat,Tingkat,Tahun,Kegiatan from prestasi inner join mahasiswa on prestasi.NIM = mahasiswa.NIM;";
     $result = $conn->query($sql); ?>
-    <table border='1'>
+    <table  class="table">
+        <thead class="thead-light">
+        <th class="text-center">Nama Mahasiswa</th>
+        <th class="text-center">Predikat</th>
+        <th class="text-center">Tingkat</th>
+        <th class="text-center">Tahun</th>
+        <th class="text-center">Kegiatan</th>
+        </thead>
         <tbody>
-            <th>Nama Mahasiswa</th>
-            <th>Predikat</th>
-            <th>Tingkat</th>
-            <th>Tahun</th>
-            <th>Kegiatan</th>
-            <?php
+        <?php
             while ($row = $result->fetch_assoc()) {
                 echo "<tr>
                     <td><a href='detail.php?q=" . $row['NIM'] . "'>" . $row['Nama'] . "</a></td>
@@ -27,4 +29,5 @@
 
         </tbody>
     </table>    
+</div>
 <?require('footer.php')?>

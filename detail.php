@@ -1,7 +1,5 @@
-<?php require('header.php');?>
-
-<body>
-
+<?php require('header.php'); ?>
+<div class="container">
 
     <?php
     require('koneksi.php');
@@ -45,12 +43,14 @@
 
         </tbody>
     </table>
-    <table border='1'>
+    <table class="table">
+        <thead class="thead-light">
+            <th class="text-center">Predikat</th>
+            <th class="text-center">Tingkat</th>
+            <th class="text-center">Tahun</th>
+            <th class="text-center">Kegiatan</th>
+        </thead>
         <tbody>
-            <th>Predikat</th>
-            <th>Tingkat</th>
-            <th>Tahun</th>
-            <th>Kegiatan</th>
             <?php
             while ($row = $result_prestasi->fetch_assoc()) {
                 echo "<tr>
@@ -67,4 +67,5 @@
         </tbody>
     </table>
 
-<?php require('footer.php')?>
+</div>
+<?php require('footer.php') ?>
