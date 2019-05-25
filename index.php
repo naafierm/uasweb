@@ -2,8 +2,21 @@
 <div class="container">
     <?php
     require('koneksi.php');
-    $sql = "select id,Nama,mahasiswa.NIM,Predikat,Tingkat,Tahun,Kegiatan from prestasi inner join mahasiswa on prestasi.NIM = mahasiswa.NIM;";
-    $result = $conn->query($sql); ?>
+    // PAGINATION SETTING
+    $limit = 15;
+    $page = isset($_GET['p']) ? (int)$_GET['p'] : 1;
+    $start = ($page > 1) ? ($page * $limit) - $limit : 0;
+
+    $allData = $conn->query("select * from prestasi;");
+    $rowCount = mysqli_num_rows($allData);
+    $pages =    ceil($rowCount / $limit);
+
+    $sql = "select id,Nama,mahasiswa.NIM,Predikat,Tingkat,Tahun,Kegiatan from prestasi inner join mahasiswa on prestasi.NIM = mahasiswa.NIM LIMIT " . $start . "," . $limit . ";";
+    $result = $conn->query($sql);
+
+
+    ?>
+
     <table class="table">
         <thead class="thead-light">
             <th class="text-center">Nama Mahasiswa</th>
@@ -22,7 +35,7 @@
                     <td>" . $row['Tingkat'] . "</td>
                     <td>" . $row['Tahun'] . "</td>
                     <td>" . $row['Kegiatan'] . "</td>
-                    <td> <button class='btn btn-danger' onclick='hapus(" . $row[id] . ",`" . $row['Predikat'] . "`,`" . $row['Kegiatan'] . "`,`" . $row['Nama'] . "`)'>Hapus</button> 
+                    <td> <button class='btn btn-danger' onclick='hapus(" . $row['id'] . ",`" . $row['Predikat'] . "`,`" . $row['Kegiatan'] . "`,`" . $row['Nama'] . "`)'>Hapus</button> 
                     <button class=' btn btn-primary'>Edit</button></td>
                     </tr>
                 ";
@@ -32,7 +45,19 @@
 
         </tbody>
     </table>
-
+    <div class="row">
+        <div class="col-md-12">
+            <div class="text-center">
+                <?php
+                for ($i = 1; $i <= $pages; $i++) {
+                    ?>
+                    <a href="?p=<?php echo $i; ?>"><button class="btn btn-primary"><?php echo $i; ?></button></a>
+                <?php
+            }
+            ?>
+            </div>
+        </div>
+    </div>
     <!-- MODAL -->
     <div id="modalDelete" class="modal fade" role="dialog">
         <div class="modal-dialog">
@@ -47,7 +72,7 @@
 
                 <!-- Modal body -->
                 <div class="modal-body">
-                   <p id="displayKeterangan"></p> 
+                    <p id="displayKeterangan"></p>
                 </div>
 
                 <!-- Modal footer -->
@@ -59,17 +84,5 @@
         </div>
     </div>
 
-    <script>
-        function hapus(id, predikat, kegiatan, nama) {
-            $('#displayKeterangan').text("Apakah anda yakin menghapus prestasi " + predikat + " " + kegiatan + " oleh " + nama);
-            $btn = "<form id='deleteForm' action='delete.php' method='POST'><button type='submit' name='id' value='"+id+"' class='btn btn-danger'>Hapus</button></form>";
-            if($('#deleteForm').length){
-                $('#deleteForm').remove();
-                $('#deleteOption').append($btn);
-            }else{
-                $('#deleteOption').append($btn);
-            }
-            $('#modalDelete').modal('show');
-        }
-    </script>
+
     <?php require('footer.php') ?>
