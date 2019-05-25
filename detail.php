@@ -26,22 +26,39 @@
     $result_prestasi = $conn->query($sql_prestasi);
     ?>
     <table>
-    <tbody>
-    <?php
-    $datas = [];
+        <tbody>
 
-    while($row = $result_data->fetch_assoc()){
-        $datas[] = $row;
-    }
-    ?>
-    <tr><td>Nama</td><td> &nbsp;:&nbsp;</td><td><?php echo $datas[0]['Nama'] ?></td><tr>
-    <tr><td>NIM</td><td> &nbsp;:&nbsp;</td><td><?php echo $datas[0]['NIM'] ?></td><tr>
-    <tr><td>Tanggal Lahir</td><td> &nbsp;:&nbsp;</td><td><?php echo $datas[0]['TTL'] ?></td><tr>
+            <?php
+            $datas = [];
 
-    </tbody>
+            while ($row = $result_data->fetch_assoc()) {
+                $datas[] = $row;
+            }
+            ?>
+            <tr>
+                <td>Nama</td>
+                <td> &nbsp;:&nbsp;</td>
+                <td><?php echo $datas[0]['Nama'] ?></td>
+            <tr>
+            <tr>
+                <td>NIM</td>
+                <td> &nbsp;:&nbsp;</td>
+                <td><?php echo $datas[0]['NIM'] ?></td>
+            <tr>
+            <tr>
+                <td>Tanggal Lahir</td>
+                <td> &nbsp;:&nbsp;</td>
+                <td><?php echo $datas[0]['TTL'] ?></td>
+            <tr>
+
+        </tbody>
     </table>
     <table border='1'>
         <tbody>
+            <th>Predikat</th>
+            <th>Tingkat</th>
+            <th>Tahun</th>
+            <th>Kegiatan</th>
             <?php
             while ($row = $result_prestasi->fetch_assoc()) {
                 echo "<tr>

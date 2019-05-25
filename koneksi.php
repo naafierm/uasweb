@@ -1,7 +1,7 @@
 <?php
 $servername ='localhost';
-$username = 'root';
-$password = '';
+$username = 'aoki';
+$password = 'anangaja';
 $dbname = 'uasweb';
 $conn = new mysqli($servername,$username,$password,$dbname);
 if ($conn->connect_error) {
