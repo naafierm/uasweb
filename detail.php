@@ -49,6 +49,7 @@
             <th class="text-center">Tingkat</th>
             <th class="text-center">Tahun</th>
             <th class="text-center">Kegiatan</th>
+            <th class="text-center">Aksi</th>
         </thead>
         <tbody>
             <?php
@@ -58,6 +59,8 @@
         <td>" . $row['Tingkat'] . "</td>
         <td>" . $row['Tahun'] . "</td>
         <td>" . $row['Kegiatan'] . "</td>
+        <td> <button class='btn btn-danger' onclick='hapus(" . $row['ID'] . ",`" . $row['Predikat'] . "`,`" . $row['Kegiatan'] . "`,`" . $datas[0]['Nama'] . "`)'>Hapus</button> 
+                    <button class=' btn btn-primary'>Edit</button></td>
         </tr>
     ";
             }
@@ -68,4 +71,29 @@
     </table>
 
 </div>
+<!-- MODAL -->
+<div id="modalDelete" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Hapus Data</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                   <p id="displayKeterangan"></p> 
+                </div>
+
+                <!-- Modal footer -->
+                <div id="deleteOption" class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Batal</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
 <?php require('footer.php') ?>
