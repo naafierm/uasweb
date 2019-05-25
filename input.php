@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html>
-    <head>
+<?php require('header.php');?>
         <title>Input Data Prestasi</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    </head>
+  
 <body>
     <form action="input-aksi.php" method="post">
         <div class="form group">
@@ -31,3 +28,4 @@
     </form>
 
 </body>
+<?require('footer.php')?>
