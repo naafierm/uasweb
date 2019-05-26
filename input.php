@@ -21,7 +21,7 @@
             <label for="kegiatan">Kegiatan</label>
             <textarea class="form-control" name="kegiatan" id="kegiatan" ></textarea>
         </div>
-        <button type="submit" class="btn btn-primary" style="text-right">Submit</button>
+        <button type="submit" class="btn btn-primary" style="margin-top: 1em;">Submit</button>
     </form>
 </div>
 

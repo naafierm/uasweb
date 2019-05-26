@@ -49,7 +49,8 @@
     </div>
 
     <div class="col-sm-2" style="padding-top:20px">
-        <button class='btn btn-primary'>Edit</button>
+       <a href="editmahasiswa.php?nim=<?php echo $datas[0]['NIM']?>"> <button class='btn btn-primary' >Edit</button>
+    </a>
     </div> 
     </div>
 
@@ -70,7 +71,7 @@
         <td class='text-center'>" . $row['Tahun'] . "</td>
         <td class='text-center'>" . $row['Kegiatan'] . "</td>
         <td class='text-center'> <button class='btn btn-danger' onclick='hapus(" . $row['ID'] . ",`" . $row['Predikat'] . "`,`" . $row['Kegiatan'] . "`,`" . $datas[0]['Nama'] . "`)'>Hapus</button> 
-                    <button class=' btn btn-primary'>Edit</button></td>
+        <a href='edit.php?id=".$row['ID']."'<button class=' btn btn-primary'>Edit</button></td>
         </tr>
     ";
             }

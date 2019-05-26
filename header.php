@@ -15,3 +15,26 @@
     </style>
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="margin-bottom:1em;">
+ <div class="container">
+ <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ <div class="collapse navbar-collapse" id="navContent">
+ <ul class="navbar-nav mr-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="index.php">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="inputmahasiswa.php">Input Mahasiswa</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="input.php">Input Prestasi</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="lihatmhs.php">Data Mahasiswa</a>
+  </li>
+</ul>
+</div>
+</div>
+</nav>
