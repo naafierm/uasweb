@@ -4,7 +4,15 @@ require('header.php'); ?>
 	<?php
 	include "koneksi.php";
 	$id = $_GET['id'];
-	$query_mysql = mysqli_query($conn, "SELECT * FROM prestasi WHERE id=$id;") or die(mysqli_error($conn));
+
+	$result = $conn->query("select * from prestasi where id=".$id);
+	$datas = [];
+	
+	while($row=$result->fetch_assoc()){
+		$datas[] = $row;
+	}
+
+	echo $datas[0]['ID'];
 
 	?>
 </div>
