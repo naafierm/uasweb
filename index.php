@@ -30,13 +30,14 @@
             <?php
             while ($row = $result->fetch_assoc()) {
                 echo "<tr>
-                    <td><a href='detail.php?q=" . $row['NIM'] . "'>" . $row['Nama'] . "</a></td>
-                    <td>" . $row['Predikat'] . "</td>
-                    <td>" . $row['Tingkat'] . "</td>
-                    <td>" . $row['Tahun'] . "</td>
-                    <td>" . $row['Kegiatan'] . "</td>
-                    <td> <button class='btn btn-danger' onclick='hapus(" . $row['id'] . ",`" . $row['Predikat'] . "`,`" . $row['Kegiatan'] . "`,`" . $row['Nama'] . "`)'>Hapus</button> 
-                    <button class=' btn btn-primary'>Edit</button></td>
+                    <td class='text-center'><a href='detail.php?q=" . $row['NIM'] . "'>" . $row['Nama'] . "</a></td>
+                    <td class='text-center'>" . $row['Predikat'] . "</td>
+                    <td class='text-center'>" . $row['Tingkat'] . "</td>
+                    <td class='text-center'>" . $row['Tahun'] . "</td>
+                    <td class='text-center'>" . $row['Kegiatan'] . "</td>
+                    <td class='text-center'> <button class='btn btn-danger' onclick='hapus(" . $row['id'] . ",`" . $row['Predikat'] . "`,`" . $row['Kegiatan'] . "`,`" . $row['Nama'] . "`)'>Hapus</button> 
+                    <a href='edit.php?id=".$row['id'].
+                    "'<button class=' btn btn-primary'>Edit</button></td>
                     </tr>
                 ";
             }
