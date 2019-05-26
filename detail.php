@@ -15,8 +15,10 @@
     $result_data = $conn->query($sql_data);
     $result_prestasi = $conn->query($sql_prestasi);
     ?>
-    <table>
-        <tbody>
+    <div class="row">
+        <div class="col-sm-10">
+        <table>
+            <tbody>
 
             <?php
             $datas = [];
@@ -25,6 +27,7 @@
                 $datas[] = $row;
             }
             ?>
+                
             <tr>
                 <td>Nama</td>
                 <td> &nbsp;:&nbsp;</td>
@@ -41,8 +44,15 @@
                 <td><?php echo $datas[0]['TTL'] ?></td>
             <tr>
 
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col-sm-2" style="padding-top:20px">
+        <button class='btn btn-primary'>Edit</button>
+    </div> 
+    </div>
+
     <table class="table">
         <thead class="thead-light">
             <th class="text-center">Predikat</th>
@@ -55,11 +65,11 @@
             <?php
             while ($row = $result_prestasi->fetch_assoc()) {
                 echo "<tr>
-        <td>" . $row['Predikat'] . "</td>
-        <td>" . $row['Tingkat'] . "</td>
-        <td>" . $row['Tahun'] . "</td>
-        <td>" . $row['Kegiatan'] . "</td>
-        <td> <button class='btn btn-danger' onclick='hapus(" . $row['ID'] . ",`" . $row['Predikat'] . "`,`" . $row['Kegiatan'] . "`,`" . $datas[0]['Nama'] . "`)'>Hapus</button> 
+        <td class='text-center'>" . $row['Predikat'] . "</td>
+        <td class='text-center'>" . $row['Tingkat'] . "</td>
+        <td class='text-center'>" . $row['Tahun'] . "</td>
+        <td class='text-center'>" . $row['Kegiatan'] . "</td>
+        <td class='text-center'> <button class='btn btn-danger' onclick='hapus(" . $row['ID'] . ",`" . $row['Predikat'] . "`,`" . $row['Kegiatan'] . "`,`" . $datas[0]['Nama'] . "`)'>Hapus</button> 
                     <button class=' btn btn-primary'>Edit</button></td>
         </tr>
     ";

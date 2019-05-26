@@ -7,8 +7,7 @@ $tingkat = $_POST['tingkat'];
 $tahun = $_POST['tahun'];
 $kegiatan = $_POST['kegiatan'];
 
-$query="UPDATE uasweb SET namaMhsw='$nama', predikat='$predikat', tingkat='$tingkat', tahun='$tahun', kegiatan='$kegiatan' WHERE id='$id'";
-
+$query="UPDATE `prestasi` SET `Predikat` = '$predikat', `Tingkat` = ' $tingkat', `Tahun` = '$tahun', `Kegiatan` = '$kegiatan' WHERE `prestasi`.`ID` = $id";
 mysqli_query($conn, $query) or die(mysqli_error($conn));
 
 header("location:index.php?pesan=update");

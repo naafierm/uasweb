@@ -6,8 +6,8 @@ $tingkat = $_POST['tingkat'];
 $tahun = $_POST['tahun'];
 $kegiatan = $_POST['kegiatan'];
 
-$query="INSERT INTO uasweb  (namaMhsw, predikat, tingkat, tahun, kegiatan) VALUES('$nama','$predikat','$tingkat','$tahun','$kegiatan')";
+$query="INSERT INTO `prestasi` (`ID`, `Predikat`, `Tingkat`, `Tahun`, `Kegiatan`, `NIM`) VALUES (NULL, '$predikat', '$tingkat', '$tahun', '$kegiatan', '$nama')";
 
 mysqli_query($conn, $query) or die(mysqli_error($conn));
-header("location:index.php?pesan=update");
+header("location:index.php");
 ?>
