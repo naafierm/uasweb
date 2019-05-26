@@ -36,7 +36,8 @@
                     <td class='text-center'>" . $row['Tahun'] . "</td>
                     <td class='text-center'>" . $row['Kegiatan'] . "</td>
                     <td class='text-center'> <button class='btn btn-danger' onclick='hapus(" . $row['id'] . ",`" . $row['Predikat'] . "`,`" . $row['Kegiatan'] . "`,`" . $row['Nama'] . "`)'>Hapus</button> 
-                    <button class=' btn btn-primary'>Edit</button></td>
+                    <a href='edit.php?id=".$row['id'].
+                    "'<button class=' btn btn-primary'>Edit</button></td>
                     </tr>
                 ";
             }
